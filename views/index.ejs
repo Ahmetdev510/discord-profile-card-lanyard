@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="/public/styles/main.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@500;600;700&display=swap">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" crossorigin>
+        <title><%=data.user.username%></title>
+        <link rel="icon" href="https://cdn.discordapp.com/avatars/<%=data.user.id%>/<%=data.user.avatar%>" type="image/png" sizes="16x16">
+    </head>
+    <body>
+        <ul class="background">
+            <section>
+                <div class="container">
+                    <div class="profile">
+                        <div class="banner"><% if(data.user.banner) { %><img src="https://cdn.discordapp.com/banners/<%=data.user.id%>/<%=data.user.banner%>?size=600" width="600" height="120"><% } %></div>
+                        <div class="main-header">
+                            <div class="image">
+                                <div class="avatar">
+                                    <img alt=" " aria-hidden="true" src="https://cdn.discordapp.com/avatars/<%=data.user.id%>/<%=data.user.avatar%>">
+                                    <div class="status">
+                                        <img alt=" " aria-hidden="true" src="/public/status/<%=data2.data.discord_status%>.png">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="badges"><%- badges %></div>
+                        </div>
+                        <div class="header">
+                            <div class="username">
+                                <span class="text-username"><%=data.user.username%></span><span class="text-discriminator">#<%=data.user.discriminator%></span>
+                            </div>
+                        </div>
+                        <span class="text-base text-status"><%=config.text%></span>
+                        <div class="divider"> </div>
+                        <div class="body">
+                            <div class="content">
+                                <div class="about-section">
+                                    <div class="title-body">ABOUT ME</div>
+                                    <!--<span class="text-base">Hi, my name is XXXXX, I'm XX years old and I'm a programmer. I own such projects as: <a href="https://example.com/">Example</a> and <a href="https://example.com/">Example</a>. I know HTML, CSS, SCSS (SASS), Tailwind CSS, Typescript, Javascript and Java. You can contact me via my email <a href="mailto:example@gmail.com">example@gmail.com</a> or Discord!</span> -->
+                                    <span class="text-base"><%
+                                        if(config.aboutme){
+                                            %><%=config.aboutme%><%
+                                        }else{
+                                            %><%-data.user.bio.replaceAll("\n","<br>")%><%
+                                        }
+                                        %></span>
+                                </div>
+                                <div class="divider social-divider"> </div>
+                                <div class="socials"><div class="column"><%- html1 %></div><div class="column"><%- html2 %></div> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                </div>
+            </section>
+            <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+        </ul>
+    </body>
+</html>
